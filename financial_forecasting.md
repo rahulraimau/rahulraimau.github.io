@@ -1,18 +1,12 @@
 ---
 layout: default
-title: Financial Data Analysis and Forecasting (Power BI/Tableau + Python)
+title: Financial Forecasting (Python + Tableau)
 ---
 
-# 📈 Financial Forecasting of Tesla Stock
+# 📈 Tesla Stock Forecasting
 
-Analyzed Tesla stock trends using Python and created visual dashboards with Tableau.
-
-## Tools Used
-- Python (yfinance, Prophet, matplotlib)
-- Tableau
+Predicted stock prices using Facebook Prophet and compared real vs. predicted values with Tableau dashboards.
 
 ## Highlights
-- Used Prophet for time series forecasting
-- Dashboard visualized price trends, forecasts, and moving averages
-
-![Tesla Forecast](./images/tesla-forecast.png)
+- Accurate 30-day rolling forecasts
+- Insights for investors and analysts

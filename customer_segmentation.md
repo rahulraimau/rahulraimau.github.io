@@ -1,18 +1,12 @@
 ---
 layout: default
-title: Customer Segmentation and Prediction (Python)
+title: Customer Segmentation (Python)
 ---
 
-# 🔍 Customer Segmentation & Prediction
+# 🔍 Customer Segmentation
 
-Used Python (Pandas, Scikit-learn) to cluster and predict customer behavior.
+Clustered customers using KMeans to understand behavior and improve targeting strategies.
 
-## Methods
-- KMeans clustering for segmentation
-- Logistic Regression & Decision Trees for churn prediction
-
-## Key Insights
-- 3 major segments based on transaction patterns
-- Predictive model had 84% accuracy
-
-![Segmentation](./images/segmentation.png)
+## Insights
+- 3 key customer types discovered
+- Plotted clusters using PCA and visualized in matplotlib

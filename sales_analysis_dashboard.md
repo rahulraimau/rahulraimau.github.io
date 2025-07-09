@@ -1,19 +1,13 @@
 ---
 layout: default
-title: Sales Analysis Dashboard (Power BI/Tableau)
+title: Sales Dashboard (Power BI)
 ---
 
-# 📊 Sales Analysis Dashboard
+# 📊 Sales Dashboard
 
-Created an interactive dashboard using Power BI and Tableau for a retail company.
+Created a Power BI dashboard to visualize monthly trends, product performance, and customer segments.
 
-## Tools Used
-- Power BI / Tableau
-- Excel
-
-## Key Insights
-- Tracked monthly sales trends
-- Identified top-performing regions and products
-- Used slicers to dynamically filter by segment and category
-
-![Sales Dashboard](./images/sales-dashboard.png)
+## Key Features
+- Filters by region and category
+- Dynamic KPIs for management
+- Monthly vs. Yearly trends

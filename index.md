@@ -3,26 +3,29 @@ layout: default
 title: Rahul Rai | Data Analyst Portfolio
 ---
 
-# 👋 Hello, I'm Rahul Rai
+# 👋 Hello! I’m Rahul Rai
 
-A passionate data analyst with expertise in Python, SQL, Power BI, and Machine Learning. I love solving business problems with data.
-
----
-
-## 🚀 Projects
-
-### 📊 [Sales Analysis Dashboard (Power BI/Tableau)](sales_analysis_dashboard.md)
-Visualized KPIs and sales performance trends to help executives drive business decisions.
-
-### 🔍 [Customer Segmentation and Prediction (Python)](customer_segmentation.md)
-Used clustering and classification models to segment customers and predict churn.
-
-### 📈 [Financial Data Analysis and Forecasting (Power BI/Tableau + Python)](financial_forecasting.md)
-Analyzed and forecasted Tesla stock prices using time-series and dashboard tools.
+A Data Analyst passionate about turning raw data into actionable insights using Python, Power BI, SQL, and machine learning.
 
 ---
 
-## 🔗 GitHub Repositories
+## 📊 Featured Projects
 
-- [Marketing Insights for E-Commerce](https://github.com/rahulraimau/Marketing-Insights-For-E-Commerce-Company1)
-- [Tesla Stock Prices Prediction](https://github.com/rahulraimau/Tesla_stock_prices_pred)
+### 🟢 [Sales Dashboard (Power BI)](sales_analysis_dashboard.md)
+🚀 A dynamic dashboard built using Power BI to analyze sales trends, regional performance, and customer insights.
+
+**Tools**: Power BI, DAX, Excel
+
+---
+
+### 🔵 [Customer Segmentation (Python)](customer_segmentation.md)
+🎯 Segmented customers based on spending behavior using K-Means clustering.
+
+**Tools**: Python, pandas, matplotlib, sklearn
+
+---
+
+### 📈 [Financial Forecasting (Python + Tableau)](financial_forecasting.md)
+📉 Forecasted Tesla stock prices and visualized trends using Python and Tableau.
+
+**Tools**: yfinance, Prophet, Tableau
