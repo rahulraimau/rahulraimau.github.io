@@ -1,0 +1,301 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rahul Rai's Data Analyst Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .smooth-scroll { scroll-behavior: smooth; }
+    .project-card { transition: all 0.3s ease; }
+    .project-card.hidden { display: none; }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900 smooth-scroll">
+  <!-- Header -->
+  <header class="bg-white shadow-md fixed w-full z-10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <h1 class="text-2xl font-bold text-indigo-600">Rahul Rai's Data Analyst Portfolio</h1>
+      <nav class="mt-2">
+        <a href="#intro" class="text-gray-600 hover:text-indigo-600 px-3 py-2">Home</a>
+        <a href="#about" class="text-gray-600 hover:text-indigo-600 px-3 py-2">About</a>
+        <a href="#skills" class="text-gray-600 hover:text-indigo-600 px-3 py-2">Skills</a>
+        <a href="#projects" class="text-gray-600 hover:text-indigo-600 px-3 py-2">Projects</a>
+        <a href="#contact" class="text-gray-600 hover:text-indigo-600 px-3 py-2">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
+    <!-- Introduction -->
+    <section id="intro" class="py-12">
+      <h2 class="text-3xl font-bold mb-4">👋 Hello! I'm Rahul Rai</h2>
+      <p class="text-lg text-gray-600">
+        A data analyst from Sahadatpurra, Maunath Bhanjan, UP, passionate about turning raw data into actionable insights using Python, Power BI, SQL, and machine learning. With training from AnalytixLabs, I build dashboards, predictive models, and data-driven solutions.
+      </p>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-12">
+      <h2 class="text-2xl font-semibold mb-4">About Me</h2>
+      <ul class="text-lg text-gray-600 space-y-2">
+        <li><strong>Location</strong>: Sahadatpurra, Maunath Bhanjan, UP - 275101</li>
+        <li><strong>Email</strong>: <a href="mailto:rahulraimaiu5@gmail.com" class="text-indigo-600 hover:underline">rahulraimaiu5@gmail.com</a></li>
+        <li><strong>Education</strong>:
+          <ul class="list-disc ml-6">
+            <li>B.Tech in Mechanical Engineering, GLA Institute of Technology, Mathura (2009–2013)</li>
+            <li>Data Science 360 Program, AnalytixLabs, Noida (2022–2023)</li>
+          </ul>
+        </li>
+        <li><strong>Background</strong>: Transitioned from UPSC preparation (2016–2020) to data science, leveraging strong analytical and problem-solving skills.</li>
+      </ul>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-12">
+      <h2 class="text-2xl font-semibold mb-4">Skills</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        <div class="bg-white p-3 rounded-lg shadow-md text-center">Python</div>
+        <div class="bg-white p-3 rounded-lg shadow-md text-center">SQL</div>
+        <div class="bg-white p-3 rounded-lg shadow-md text-center">Power BI</div>
+        <div class="bg-white p-3 rounded-lg shadow-md text-center">Tableau</div>
+        <div class="bg-white p-3 rounded-lg shadow-md text-center">Excel</div>
+        <div class="bg-white p-3 rounded-lg shadow-md text-center">Machine Learning</div>
+        <div class="bg-white p-3 rounded-lg shadow-md text-center">Pandas</div>
+        <div class="bg-white p-3 rounded-lg shadow-md text-center">Scikit-learn</div>
+        <div class="bg-white p-3 rounded-lg shadow-md text-center">TensorFlow</div>
+        <div class="bg-white p-3 rounded-lg shadow-md text-center">Streamlit</div>
+        <div class="bg-white p-3 rounded-lg shadow-md text-center">Matplotlib</div>
+        <div class="bg-white p-3 rounded-lg shadow-md text-center">Seaborn</div>
+        <div class="bg-white p-3 rounded-lg shadow-md text-center">yfinance</div>
+        <div class="bg-white p-3 rounded-lg shadow-md text-center">Prophet</div>
+        <div class="bg-white p-3 rounded-lg shadow-md text-center">NLTK</div>
+        <div class="bg-white p-3 rounded-lg shadow-md text-center">XGBoost</div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-12">
+      <h2 class="text-2xl font-semibold mb-4">📊 Featured Projects</h2>
+      <!-- Filter Bar -->
+      <div class="flex space-x-4 mb-6">
+        <button class="filter-btn bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700" data-category="all">All</button>
+        <button class="filter-btn bg-gray-200 text-gray-900 px-4 py-2 rounded hover:bg-gray-300" data-category="Python">Python</button>
+        <button class="filter-btn bg-gray-200 text-gray-900 px-4 py-2 rounded hover:bg-gray-300" data-category="Power BI">Power BI</button>
+        <button class="filter-btn bg-gray-200 text-gray-900 px-4 py-2 rounded hover:bg-gray-300" data-category="SQL">SQL</button>
+        <button class="filter-btn bg-gray-200 text-gray-900 px-4 py-2 rounded hover:bg-gray-300" data-category="Machine Learning">Machine Learning</button>
+      </div>
+      <!-- Project Container -->
+      <div id="project-container" class="space-y-6"></div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-12">
+      <h2 class="text-2xl font-semibold mb-4">Contact</h2>
+      <p class="text-lg text-gray-600 mb-4">Reach out to discuss projects or opportunities:</p>
+      <ul class="text-lg text-gray-600 space-y-2">
+        <li><strong>Email</strong>: <a href="mailto:rahulraimaiu5@gmail.com" class="text-indigo-600 hover:underline">rahulraimaiu5@gmail.com</a></li>
+        <li><strong>GitHub</strong>: <a href="https://github.com/rahulraimau" class="text-indigo-600 hover:underline">github.com/rahulraimau</a></li>
+        <li><strong>LinkedIn</strong>: <a href="https://linkedin.com/in/your-linkedin" class="text-indigo-600 hover:underline">linkedin.com/in/your-linkedin</a></li>
+        <li><a href="assets/Rahul_Rai_Resume.pdf" class="text-indigo-600 hover:underline">Download Resume</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-6">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p>© 2025 Rahul Rai. Hosted on <a href="https://rahulraimau.github.io" class="text-indigo-400 hover:underline">GitHub Pages</a>.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Dynamic Features -->
+  <script>
+    // Project Data
+    const projects = [
+      {
+        title: "Sales Dashboard (Power BI)",
+        category: "Power BI",
+        description: "A dynamic dashboard analyzing sales trends, regional performance, and customer insights.",
+        tools: "Power BI, DAX, Excel",
+        image: "images/sales_analysis_dashboard.jpg",
+        details: "https://github.com/rahulraimau/rahulraimau.github.io/blob/main/sales_analysis_dashboard.md",
+        demo: "#"
+      },
+      {
+        title: "Customer Segmentation (Python)",
+        category: "Python",
+        description: "Segmented customers using K-Means clustering based on spending behavior.",
+        tools: "Python, Pandas, Matplotlib, Scikit-learn",
+        image: "images/customer_segmentation.jpg",
+        details: "https://github.com/rahulraimau/rahulraimau.github.io/blob/main/customer_segmentation.md",
+        demo: "#"
+      },
+      {
+        title: "SQL Sales Querying",
+        category: "SQL",
+        description: "Queried and joined datasets for business insights using MySQL/PostgreSQL.",
+        tools: "MySQL, PostgreSQL",
+        image: "images/sql_project.jpg",
+        details: "https://github.com/rahulraimau/rahulraimau.github.io/blob/main/sql_project.md",
+        demo: "#"
+      },
+      {
+        title: "NLP Sentiment Analysis",
+        category: "Machine Learning",
+        description: "Classified Amazon product reviews using text processing and sentiment modeling.",
+        tools: "Python, NLTK, Scikit-learn",
+        image: "images/nlp_sentiment.jpg",
+        details: "https://github.com/rahulraimau/rahulraimau.github.io/blob/main/nlp_sentiment.md",
+        demo: "#"
+      },
+      {
+        title: "Retail EDA & Visualization",
+        category: "Python",
+        description: "Cleaned, explored, and visualized retail data using Pandas and Seaborn.",
+        tools: "Python, Pandas, Seaborn",
+        image: "images/eda_visualization.jpg",
+        details: "https://github.com/rahulraimau/rahulraimau.github.io/blob/main/eda_visualization.md",
+        demo: "#"
+      },
+      {
+        title: "Customer Churn App (Streamlit)",
+        category: "Python",
+        description: "Interactive app to predict customer churn in real-time.",
+        tools: "Python, Streamlit, Scikit-learn",
+        image: "images/streamlit_app.jpg",
+        details: "https://github.com/rahulraimau/rahulraimau.github.io/blob/main/streamlit_app.md",
+        demo: "#"
+      },
+      {
+        title: "Financial Forecasting (Python + Tableau)",
+        category: "Python",
+        description: "Forecasted Tesla stock prices and visualized trends using Python and Tableau.",
+        tools: "Python, yfinance, Prophet, Tableau",
+        image: "images/financial_forecasting.jpg",
+        details: "https://github.com/rahulraimau/rahulraimau.github.io/blob/main/financial_forecasting.md",
+        demo: "#"
+      },
+      {
+        title: "Credit Card Default Prediction",
+        category: "Machine Learning",
+        description: "Trained ML models like Random Forest and XGBoost to predict credit default risk.",
+        tools: "Python, Scikit-learn, XGBoost",
+        image: "images/ml_credit_default.jpg",
+        details: "https://github.com/rahulraimau/rahulraimau.github.io/blob/main/ml_credit_default.md",
+        demo: "#"
+      },
+      {
+        title: "Image Classifier (CNN)",
+        category: "Machine Learning",
+        description: "Built a convolutional neural network to classify images with high accuracy.",
+        tools: "Python, TensorFlow, Keras",
+        image: "images/ml_image_classifier.jpg",
+        details: "https://github.com/rahulraimau/rahulraimau.github.io/blob/main/ml_image_classifier.md",
+        demo: "#"
+      },
+      {
+        title: "Animal Image Classifier",
+        category: "Machine Learning",
+        description: "CNN to classify Dog, Cat, and Deer images using a CIFAR-10 subset, with a Streamlit app.",
+        tools: "Python, TensorFlow, Keras, Streamlit",
+        image: "images/animal_image_classifier.jpg",
+        details: "https://github.com/rahulraimau/animal-classifier",
+        demo: "#"
+      }
+    ];
+
+    // Load Projects
+    const projectContainer = document.getElementById('project-container');
+    function loadProjects(category = 'all') {
+      projectContainer.innerHTML = '';
+      projects.forEach(project => {
+        if (category === 'all' || project.category === category) {
+          const projectCard = document.createElement('div');
+          projectCard.className = 'project-card bg-white p-6 rounded-lg shadow-md';
+          projectCard.innerHTML = `
+            <h3 class="text-xl font-semibold mb-2">${project.title}</h3>
+            <p class="text-gray-600 mb-2">${project.description}</p>
+            <p class="text-gray-600 mb-2"><strong>Tools</strong>: ${project.tools}</p>
+            <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover mb-2 rounded">
+            <div class="flex space-x-4">
+              <a href="${project.details}" class="text-indigo-600 hover:underline">Details</a>
+              <a href="${project.demo}" class="text-indigo-600 hover:underline">Live Demo</a>
+            </div>
+          `;
+          projectContainer.appendChild(projectCard);
+        }
+      });
+    }
+
+    // Filter Projects
+    document.querySelectorAll('.filter-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.classList.remove('bg-indigo-600', 'text-white');
+          btn.classList.add('bg-gray-200', 'text-gray-900');
+        });
+        button.classList.remove('bg-gray-200', 'text-gray-900');
+        button.classList.add('bg-indigo-600', 'text-white');
+        loadProjects(category);
+      });
+    });
+
+    // Initial Load
+    loadProjects();
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
