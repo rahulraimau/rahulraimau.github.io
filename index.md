@@ -42,3 +42,9 @@ Deployed an interactive app to predict churn from user inputs in real-time.
 📉 Forecasted Tesla stock prices and visualized trends using Python and Tableau.
 
 **Tools**: yfinance, Prophet, Tableau
+
+### 🧠 [Credit Card Default Prediction](ml_credit_default.md)
+Trained ML models like Random Forest and XGBoost to predict credit default risk.
+
+### 🧠 [Image Classifier (CNN)](ml_image_classifier.md)
+Built a convolutional neural network to classify images with high accuracy using TensorFlow.
