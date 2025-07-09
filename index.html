@@ -8,28 +8,41 @@
 </head>
 <body class="bg-white text-gray-900 font-sans">
 
-  <!-- Navbar -->
-  <nav class="bg-white shadow-md sticky top-0 z-10">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-      <span class="text-xl font-bold text-indigo-600">Rahul Rai</span>
-      <ul class="flex space-x-6 text-gray-700 text-sm font-semibold">
-        <li><a href="#about" class="hover:text-indigo-600">About</a></li>
-        <li><a href="#skills" class="hover:text-indigo-600">Skills</a></li>
-        <li><a href="#projects" class="hover:text-indigo-600">Projects</a></li>
-        <li><a href="#resources" class="hover:text-indigo-600">Downloads</a></li>
-        <li><a href="#contact" class="hover:text-indigo-600">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+  <!-- NAVBAR -->
+<header class="bg-white shadow-md fixed w-full top-0 z-10">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <h1 class="text-2xl font-bold text-indigo-600">Rahul Rai</h1>
+    <nav class="space-x-6 text-gray-700 font-medium">
+      <a href="#about" class="hover:text-indigo-600">About</a>
+      <a href="#skills" class="hover:text-indigo-600">Skills</a>
+      <a href="#projects" class="hover:text-indigo-600">Projects</a>
+      <a href="#downloads" class="hover:text-indigo-600">Downloads</a>
+      <a href="#contact" class="hover:text-indigo-600">Contact</a>
+    </nav>
+  </div>
+</header>
 
   <main class="max-w-5xl mx-auto px-4 py-12">
     
-   <!-- Introduction -->
-<section id="intro" class="min-h-[80vh] flex items-center justify-center text-center py-12">
-  <div>
-    <h2 class="text-4xl sm:text-5xl font-bold mb-4">👋 Hello! I'm Rahul Rai</h2>
-    <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-      A data analyst from Sahadatpurra, Maunath Bhanjan, passionate about turning raw data into actionable insights using Python, Power BI, SQL, and machine learning.
+   <!-- Introduction Section -->
+<section id="intro" class="min-h-[85vh] flex flex-col justify-center items-center text-center bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 px-4 py-12">
+  <div class="max-w-4xl">
+    <h1 class="text-4xl sm:text-5xl font-bold mb-4">👋 Hello! I'm Rahul Rai</h1>
+    
+    <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-4">
+      A passionate <strong>Data Analyst</strong> from <strong>Sahadatpurra, Maunath Bhanjan, UP</strong>, turning raw data into actionable insights.
+      With a foundation in <strong>Mechanical Engineering</strong> and training in <strong>Data Science 360 at AnalytixLabs</strong>,
+      I specialize in uncovering trends, building dashboards, and driving data-backed decisions.
+    </p>
+
+    <p class="text-base sm:text-lg text-gray-700 dark:text-gray-400 mb-4">
+      📊 Recently led a <strong>Financial Forecasting Project</strong> to analyze quarterly revenue, model future trends using time-series analysis
+      and predict credit risk using machine learning classification models. Delivered automated dashboards using Power BI and Python.
+    </p>
+
+    <p class="text-base sm:text-lg text-gray-700 dark:text-gray-400">
+      💡 Skilled in <strong>Python, SQL, Power BI, Excel, Tableau, Streamlit, ML (XGBoost, Regression), Clustering, and NLP</strong>. 
+      I'm actively seeking opportunities to collaborate and solve real-world business problems through data.
     </p>
   </div>
 </section>
@@ -111,6 +124,21 @@
           <p class="text-gray-600">Sales trend analysis and customer behavior using SQL joins, aggregates, CTEs.</p>
         </div>
 
+
+        <!-- 📈 Financial Forecasting and Credit Risk ML -->
+<div>
+  <h3 class="text-xl font-bold mt-10 mb-2">📈 Financial Forecasting & Credit Risk Prediction</h3>
+  <img src="images/financial_forecast.png" alt="Financial Forecast" class="rounded shadow w-full max-w-3xl mb-2">
+  <p class="text-gray-600">
+    Developed a two-part solution:
+    <ul class="list-disc ml-6 mt-2 text-gray-600">
+      <li><strong>Forecasting:</strong> Used Python (ARIMA/Prophet) to project future quarterly revenue and growth.</li>
+      <li><strong>Credit Risk:</strong> Built a classification model (Logistic Regression, XGBoost) to predict loan default risk.</li>
+      <li><strong>Dashboard:</strong> Created interactive Power BI dashboard for stakeholders with KPIs, risk tiers, and timelines.</li>
+    </ul>
+    Tools: Python, Pandas, Scikit-learn, Power BI, Time Series, Streamlit
+  </p>
+</div>
         <!-- Kaggle -->
         <div>
           <h3 class="text-xl font-bold mb-2">🏠 House Prices – Kaggle Competition</h3>
