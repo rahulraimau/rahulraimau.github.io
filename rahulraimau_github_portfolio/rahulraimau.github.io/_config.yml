@@ -1,0 +1,11 @@
+title: Rahul Rai Portfolio
+email: your.email@example.com
+description: >- 
+  Portfolio showcasing data analytics, dashboards, and insights.
+baseurl: ""
+url: "https://rahulraimau.github.io"
+theme: minima
+
+markdown: kramdown
+plugins:
+  - jekyll-feed
