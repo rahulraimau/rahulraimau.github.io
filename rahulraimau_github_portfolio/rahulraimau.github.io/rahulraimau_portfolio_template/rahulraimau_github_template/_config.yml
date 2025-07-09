@@ -1,0 +1,7 @@
+title: Rahul Rai | Data Analyst Portfolio
+email: your.email@example.com
+description: Data-driven portfolio using GitHub Pages and Jekyll.
+theme: minima
+baseurl: ""
+url: "https://rahulraimau.github.io"
+markdown: kramdown
