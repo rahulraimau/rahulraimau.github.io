@@ -23,6 +23,19 @@ A Data Analyst passionate about turning raw data into actionable insights using 
 
 **Tools**: Python, pandas, matplotlib, sklearn
 
+
+### 🗃️ [SQL Sales Querying](sql_project.md)
+Queried and joined datasets to extract business insights using MySQL/PostgreSQL.
+
+### 💬 [NLP Sentiment Analysis](nlp_sentiment.md)
+Classified Amazon product reviews using text processing and sentiment modeling.
+
+### 📊 [Retail EDA & Visualization](eda_visualization.md)
+Cleaned, explored, and visualized retail data for insights using pandas and seaborn.
+
+### 📱 [Customer Churn App (Streamlit)](streamlit_app.md)
+Deployed an interactive app to predict churn from user inputs in real-time.
+
 ---
 
 ### 📈 [Financial Forecasting (Python + Tableau)](financial_forecasting.md)
